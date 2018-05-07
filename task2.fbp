@@ -1,0 +1,94 @@
+[PROJECT]
+version=7
+target_rts=2051
+target_os=514
+target_ver=19
+target_name=DevLink-D500 7.1x Linux
+files=3
+path=C:\Users\Администратор\Desktop\Задание 2\task2db
+ip=192.168.11.155
+port=0
+variablecontrol=0
+ip_controller=192.168.11.248
+port_controller=3490
+Show_Grid=1
+Attach_to_Grid=1
+VerticalGridStep=10
+HorisontalGridStep=10
+GridColor=0
+IsMarkingEnable=0
+AutoStart=0
+[DEBUG_SETTINGS]
+debug_remote=1
+debug_contrstop=1
+debug_initenvonrun=0
+debug_autoprogupdate=0
+debug_stopruncursor=1
+handmode=1
+stepmode=1
+cyclecountmode=0
+cyclecount=1000
+cycletime=1000
+steptime=500
+[CONTROLLER_SETTINGS]
+contr_autoprogupdate=1
+contr_contrdbupdate=1
+contr_runenvinit=1
+[FILE1]
+name=Main.lg
+type=program
+LeftMargin=100
+TopMargin=100
+RightMargin=100
+BottomMargin=100
+Orientation=1
+Format=9
+[FILE2]
+name=lightTest.lg
+type=program
+LeftMargin=100
+TopMargin=100
+RightMargin=100
+BottomMargin=100
+Orientation=1
+Format=9
+[FILE3]
+name=lightControlAlgorithm.lg
+type=program
+LeftMargin=100
+TopMargin=100
+RightMargin=100
+BottomMargin=100
+Orientation=1
+Format=9
+[VARIABLES]
+table_id=320
+count=0
+[CONSTANTS]
+table_id=321
+count=0
+[PROGRAMS]
+count=1
+program1_name=Main
+program1_line=1
+program1_filename=Main.lg
+program1_loadtocontrdb=1
+[DEBUG_VARIABLES]
+window_count=8
+1_window_name=Окно 1
+2_window_name=Окно 2
+3_window_name=Окно 3
+4_window_name=Окно 4
+5_window_name=Окно 5
+6_window_name=Окно 6
+7_window_name=Окно 7
+8_window_name=Окно 8
+count=0
+[DB_COMMON_SETTINGS]
+AnalogOutput=0
+AnalogInput=0
+DiscreteInput=0
+DiscreteOutput=0
+HandInput=0
+[BREAKPOINTS]
+file_count=0
