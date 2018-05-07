@@ -1,0 +1,59 @@
+<!ELEMENT krug_db    (process, table_refs?) >
+
+<!ELEMENT process    (string_types?, tables?) >
+<!ATTLIST process    name       CDATA #REQUIRED>
+
+<!ELEMENT string_types (string_type*)>
+
+<!ELEMENT tables     (table*)>
+
+<!ELEMENT string_type  (element*)> 
+<!ATTLIST string_type  name         CDATA #REQUIRED>
+
+<!ELEMENT table      (record*)> 
+<!ATTLIST table      name           CDATA #REQUIRED   
+                     string_process CDATA #IMPLIED
+                     string_type    CDATA #REQUIRED
+                     filename       CDATA #IMPLIED 
+                     >
+
+<!ELEMENT element    EMPTY>
+<!ATTLIST element    name         CDATA #REQUIRED
+                     offset       CDATA #IMPLIED
+                     type         (VT_EMPTY | VT_NULL | 
+                                   VT_UI1   | VT_I2   | VT_I4     | VT_R4      |
+                                   VT_R8    | VT_BOOL | VT_DATE   | VT_I1      |
+                                   VT_UI2   | VT_UI4  | VT_INT    | VT_UINT    |
+                                   VT_STRING | VT_VARIANT | VT_STRING_INDEX) #REQUIRED
+                     size          CDATA "1" >
+
+<!ELEMENT record     (item*)>
+
+<!ELEMENT item       (#PCDATA)>
+<!ATTLIST item       name         CDATA #REQUIRED
+                     vt           (VT_EMPTY | VT_NULL | 
+                                   VT_UI1   | VT_I2   | VT_I4     | VT_R4      |
+                                   VT_R8    | VT_BOOL | VT_DATE   | VT_I1      |
+                                   VT_UI2   | VT_UI4  | VT_INT    | VT_UINT    |
+                                   VT_STRING | VT_VARIANT | VT_STRING_INDEX) #IMPLIED>
+
+<!ELEMENT table_refs (table_ref*)>
+
+<!ELEMENT table_ref  (ref*)>
+<!ATTLIST table_ref  name         CDATA #REQUIRED>
+
+<!ELEMENT ref        (ref_from, ref_to+)>
+
+<!ELEMENT ref_from   (ref_element?, ref_index?)>
+<!ATTLIST ref_from   process      CDATA #REQUIRED
+                     table        CDATA #REQUIRED >
+
+<!ELEMENT ref_to     (ref_element?, ref_index?)>
+<!ATTLIST ref_to     process      CDATA #REQUIRED
+                     table        CDATA #REQUIRED >
+
+<!ELEMENT ref_element EMPTY>
+<!ATTLIST ref_element name        CDATA #REQUIRED >
+
+<!ELEMENT ref_index  EMPTY>
+<!ATTLIST ref_index  list         CDATA #REQUIRED >
