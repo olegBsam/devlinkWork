@@ -1,0 +1,13 @@
+ѕ–ќ÷≈ƒ”–ј Initialization
+	Ќј„јЋќ	
+		:—читывание уставок
+		ƒЋя constId[50...51]{
+			пц[constId] = вц(рв[constId])
+		}
+		: оды —ћ 
+		ƒЋя smkStateCodeId[55]{
+			пц[smkStateCodeId] = вц(рв[smkStateCodeId])
+		}
+		:—бросить,чтобы не заходить снова
+		рв10 = 0
+	 ќЌ≈÷

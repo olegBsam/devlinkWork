@@ -1,0 +1,11 @@
+ПРОЦЕДУРА TestAllDevices
+	НАЧАЛО
+		ДЛЯ devicesId[200...201]{
+			если (!пл[devicesId]){
+				рв[devicesId] = 404 :Устройство потерялось
+			}
+			иначе{
+				рв[devicesId] = 1
+			}
+		}
+	КОНЕЦ

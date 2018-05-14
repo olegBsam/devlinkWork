@@ -1,4 +1,63 @@
 ПРОГРАММА Main
 НАЧАЛО
-	lightControlAlgorithm(ПЦ14) :пц14 состояние СМК
+	ПЕРЕМЕННЫЕ
+		НАЧАЛО
+			ЛОГ isFirstOpen
+		КОНЕЦ
+	если (рв10 = 1){
+		Initialization
+		TestAllDevices
+	}
+	
+	если (!isMotionSensorActive(100) & (GetTimerState(250, 1) # 0)){
+		:Если таймер, считающий время присутствия движения запущен, а 
+		:движения нет
+		TimerStope(250, 1)
+		SetTimerState(250, 1, 0)
+	}
+		
+	если (GetTimerState(250, 1) < 1){
+	
+		если ((GetTimerState(250,0) # 0) & (GetTimerState(250,0) < 30)){
+			:Прошло менее заданного времени с момента тревоги СМК
+			если (isMotionSensorActive(100) & (GetTimerState(250, 1) = 0)){
+				:И есть движение, а таймер считающий движение не запущен
+				:то включаем таймер
+				TimerStart(250, 1)
+			}
+		} 
+		
+		если (isSMKOpen(150)){
+			если (GetTimerState(250,0) = 0){
+				:Дверь открылась, начинаем отсчитывать 30 секунд
+				:не обращаем внимания на открывания\закрывания двери
+				RelaysTurnOn(101)
+				TimerStart(250, 0)
+			}
+		}
+		
+		если (GetTimerState(250,0) >= 30){
+			TimerStope(250,0)
+			если (!isSMKOpen(150)){
+				рв500 = GetTimerState(250,0)
+				SetTimerState(250,0,0)
+			}
+			:Выкл свет если на момент истечения 30 сек смкТревоги нет движения
+			если (GetTimerState(250, 1) = 0){
+				RelaysTurnOff(101)
+			}
+		}		
+	}
+	иначе{
+		RelaysTurnOn(100)
+		
+		
+	:если ()
+		:	innerLightTest()
+	}
+	
+	
+:	LightControlAlgorithm 
+	:пц14 состояние СМК
+	:RoomIllumination(пц11, вц(рв11), вц(рв10), пц10, вц(рв12), ЦЛ(ВЦ(рв14)), тм1)
 КОНЕЦ

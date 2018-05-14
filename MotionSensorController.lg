@@ -1,0 +1,17 @@
+тсмйжхъ isMotionSensorActive
+	бундмше_оепелеммше
+		мювюкн
+			жек16 sensorId
+		йнмеж
+	бшундмше_оепелеммше
+		мювюкн
+			кнц sensorState
+		йнмеж
+	мювюкн
+		дкъ _sensorId[100]{
+			ЕЯКХ (_sensorId = sensorId){
+				sensorState = ПБ100 = 1245
+			}
+		}
+	йнмеж
+	

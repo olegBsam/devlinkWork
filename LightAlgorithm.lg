@@ -1,0 +1,20 @@
+опнжедспю LightControlAlgorithm
+	мювюкн
+		оепелеммше
+			мювюкн
+				жек16 innerLightThreshold
+				жек16 outerLightThreshold
+			йнмеж
+			
+		ЕЯКХ (GetTimerState(250, 0) = 0){
+			RelaysTurnOn(100)
+			TimerStart(250, 0)
+		}
+		ХМЮВЕ_ЕЯКХ (GetTimerState(250, 0) >= 30){
+			TimerStope(250, 0)
+			SetTimerState(250,0,0)
+			RelaysTurnOff(100)
+		}
+	йнмеж
+	
+	

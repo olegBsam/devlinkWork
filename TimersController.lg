@@ -1,0 +1,107 @@
+:рЮИЛЕПШ 5 ЬРСЙ 250-253
+:timerType 0 - РЯ 1 - РЛ
+тсмйжхъ TimerStart
+	бундмше_оепелеммше
+		мювюкн
+			жек16 timerId
+			жек16 timerType
+		йнмеж
+	мювюкн
+		дкъ _timerId[250...253]{
+			ЕЯКХ (_timerId = timerId){
+				ЕЯКХ (timerType = 0){
+					БЙК РЯ[_timerId]
+				}ХМЮВЕ_ЕЯКХ (timerType = 1){
+					БЙК РЛ[_timerId]
+				}
+				опепбюрэ
+			}
+		}
+	йнмеж
+
+тсмйжхъ TimerRestart
+	бундмше_оепелеммше
+		мювюкн
+			жек16 timerId
+			жек16 timerType
+		йнмеж
+	мювюкн
+		дкъ _timerId[250...253]{
+			ЕЯКХ (_timerId = timerId){
+				ЕЯКХ (timerType = 0){
+					БШЙК РЯ[_timerId]
+					РЯ[_timerId] = 0
+					БЙК РЯ[_timerId]
+				}ХМЮВЕ_ЕЯКХ (timerType = 1){
+					БШЙК РЛ[_timerId]
+					РЛ[_timerId] = 0
+					БЙК РЛ[_timerId]
+				}
+				опепбюрэ
+			}
+		}
+	йнмеж
+	
+тсмйжхъ TimerStope
+	бундмше_оепелеммше
+		мювюкн
+			жек16 timerId
+			жек16 timerType
+		йнмеж
+	мювюкн
+		дкъ _timerId[250...253]{
+			ЕЯКХ (_timerId = timerId){
+				ЕЯКХ (timerType = 0){
+					БШЙК РЯ[_timerId]
+				}ХМЮВЕ_ЕЯКХ (timerType = 1){
+					БШЙК РЛ[_timerId]
+				}
+				опепбюрэ
+			}
+		}
+	йнмеж
+	
+тсмйжхъ GetTimerState
+	бундмше_оепелеммше
+		мювюкн
+			жек16 timerId
+			жек16 timerType
+		йнмеж
+	бшундмше_оепелеммше
+		мювюкн
+			бЕЫ timerState
+		йнмеж
+	мювюкн
+		дкъ _timerId[250...253]{
+			ЕЯКХ (_timerId = timerId){
+				ЕЯКХ(timerType = 0){
+					timerState = РЯ[_timerId]
+				}
+				ХМЮВЕ_ЕЯКХ(timerType = 1){
+					timerState = РЛ[_timerId]
+				}
+				опепбюрэ
+			}
+		}
+	йнмеж
+
+тсмйжхъ SetTimerState
+	бундмше_оепелеммше
+		мювюкн
+			жек16 timerId
+			жек16 timerType
+			бЕЫ timerState
+		йнмеж
+	мювюкн
+		дкъ _timerId[250...253]{
+			ЕЯКХ (_timerId = timerId){
+				ЕЯКХ(timerType = 0){
+					РЯ[_timerId] = timerState
+				}
+				ХМЮВЕ_ЕЯКХ(timerType = 1){
+					РЛ[_timerId] = timerState
+				}
+				опепбюрэ
+			}
+		}
+	йнмеж

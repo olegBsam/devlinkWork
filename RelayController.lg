@@ -1,0 +1,34 @@
+ÔÓÍÊÖÈß _RelaysSetState
+	ÂÕÎÄÍÛÅ_ÏÅÐÅÌÅÍÍÛÅ
+		ÍÀ×ÀËÎ
+			ÖÅË16 relaysId
+			ËÎÃ state
+		ÊÎÍÅÖ
+	ÍÀ×ÀËÎ
+		åñëè (relaysId >= 100 & relaysId <= 101){
+			ÄËß _relaysId [100...101]{
+				åñëè (relaysId = _relaysId){
+					ïë[_relaysId] = state
+					ÏÐÅÐÂÀÒÜ
+				}
+			}
+		}
+	ÊÎÍÅÖ
+
+ÔÓÍÊÖÈß RelaysTurnOn
+	ÂÕÎÄÍÛÅ_ÏÅÐÅÌÅÍÍÛÅ
+		ÍÀ×ÀËÎ
+			ÖÅË16 relaysId
+		ÊÎÍÅÖ
+	ÍÀ×ÀËÎ
+		_RelaysSetState(relaysId, 1)
+	ÊÎÍÅÖ
+		
+ÔÓÍÊÖÈß RelaysTurnOff
+	ÂÕÎÄÍÛÅ_ÏÅÐÅÌÅÍÍÛÅ
+		ÍÀ×ÀËÎ
+			ÖÅË16 relaysId
+		ÊÎÍÅÖ
+	ÍÀ×ÀËÎ
+		_RelaysSetState(relaysId, 0)
+	ÊÎÍÅÖ
